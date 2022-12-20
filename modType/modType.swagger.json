@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "proto/modType/modType.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "ModTypeService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/modType": {
+      "get": {
+        "operationId": "ModTypeService_GetModTypes",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modType_serviceGetModTypesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ModTypeService"
+        ]
+      }
+    },
+    "/v1/modType/{ID}": {
+      "get": {
+        "operationId": "ModTypeService_GetModTypeByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modType_serviceGetModTypeByIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ModTypeService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "modType_serviceGetModTypeByIDResponse": {
+      "type": "object",
+      "properties": {
+        "ModType": {
+          "$ref": "#/definitions/modType_serviceModType"
+        }
+      }
+    },
+    "modType_serviceGetModTypesResponse": {
+      "type": "object",
+      "properties": {
+        "ModTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/modType_serviceModType"
+          }
+        }
+      }
+    },
+    "modType_serviceModType": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

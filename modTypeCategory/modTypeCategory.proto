@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package modTypeCategory_service;
+
+option go_package = "github.com/RikVanHaaren/MxBikesClient/service.ModTypeCategory";
+
+service ModTypeCategoryService {
+    rpc GetModTypeCategoryByID(GetModTypeCategoryByIDRequest) returns (GetModTypeCategoryByIDResponse);
+    rpc GetModTypeCategoriesByModTypeID(GetModTypeCategoriesByModTypeIDRequest) returns (GetModTypeCategoriesByModTypeIDResponse);
+    rpc GetModTypeCategories(GetModTypeCategoriesRequest) returns (GetModTypeCategoriesResponse);
+}
+
+message ModTypeCategory {
+    string ID = 1;
+    string Name = 2;
+    string ModTypeID = 3;
+}
+
+
+// GetModTypeCategoryByID
+message GetModTypeCategoryByIDRequest {
+    string ID = 1;
+}
+  
+message GetModTypeCategoryByIDResponse {
+    ModTypeCategory ModTypeCategory = 1;
+}
+
+// GetModTypeCategoriesByModTypeID
+message GetModTypeCategoriesByModTypeIDRequest {
+    string ModTypeID = 1;
+}
+  
+message GetModTypeCategoriesByModTypeIDResponse {
+    repeated ModTypeCategory ModTypeCategories = 1;
+}
+
+// GetModTypeCategories
+message GetModTypeCategoriesRequest { }
+  
+message GetModTypeCategoriesResponse {
+    repeated ModTypeCategory ModTypeCategories = 1;
+}

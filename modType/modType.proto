@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package modType_service;
+
+option go_package = "github.com/RikVanHaaren/MxBikesClient/service.ModType";
+
+service ModTypeService {
+    rpc GetModTypeByID(GetModTypeByIDRequest) returns (GetModTypeByIDResponse);
+    rpc GetModTypes(GetModTypesRequest) returns (GetModTypesResponse);
+}
+
+message ModType {
+    string ID = 1;
+    string Name = 2;
+}
+
+
+// GetModTypeByID
+message GetModTypeByIDRequest {
+    string ID = 1;
+}
+  
+message GetModTypeByIDResponse {
+    ModType ModType = 1;
+}
+
+// GetModTypes
+message GetModTypesRequest { }
+  
+message GetModTypesResponse {
+    repeated ModType ModTypes = 1;
+}

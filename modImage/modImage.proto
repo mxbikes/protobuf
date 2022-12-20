@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package modImage_service;
+
+option go_package = "github.com/RikVanHaaren/MxBikesClient/service.ModImage";
+
+service ModImageService {
+    rpc GetModImagesByModID(GetModImagesByModIDRequest) returns (GetModImagesByModIDResponse);
+}
+
+message ModImage {
+    string Name = 1;
+    string Bucket = 2;
+    string Url = 4;
+}
+
+message Tag {
+    string Key = 1;
+    string Value = 2;
+}
+
+// GetModImagesByModID
+message GetModImagesByModIDRequest {
+    string ModID = 1;
+}
+
+message GetModImagesByModIDResponse {
+    repeated ModImage ModImage = 2;
+}
+  

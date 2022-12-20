@@ -1,0 +1,104 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "proto/modImage/modImage.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "ModImageService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/modImages/{ModID}": {
+      "get": {
+        "operationId": "ModImageService_GetModImagesByModID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/modImage_serviceGetModImagesByModIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ModID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ModImageService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "modImage_serviceGetModImagesByModIDResponse": {
+      "type": "object",
+      "properties": {
+        "ModImage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/modImage_serviceModImage"
+          }
+        }
+      }
+    },
+    "modImage_serviceModImage": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Bucket": {
+          "type": "string"
+        },
+        "Url": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
