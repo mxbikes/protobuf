@@ -4,7 +4,7 @@
 // - protoc             v3.21.7
 // source: modTypeCategory/modTypeCategory.proto
 
-package service_ModTypeCategory
+package ModTypeCategory
 
 import (
 	context "context"

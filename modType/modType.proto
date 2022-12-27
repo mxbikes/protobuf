@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package modType_service;
 
-option go_package = "github.com/RikVanHaaren/MxBikesClient/service.ModType";
+option go_package = "github.com/mxbikes/protobuf/ModType";
 
 service ModTypeService {
     rpc GetModTypeByID(GetModTypeByIDRequest) returns (GetModTypeByIDResponse);

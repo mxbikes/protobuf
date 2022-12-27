@@ -1,0 +1,12 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: mod_service.ModService.GetModByID
+      get: /v1/mods/{ID}
+    - selector: mod_service.ModService.SearchMod
+      post: /v1/mods
+      body: "*"
+
+      

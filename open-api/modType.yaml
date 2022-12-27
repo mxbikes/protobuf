@@ -1,0 +1,11 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: modType_service.ModTypeService.GetModTypeByID
+      get: /v1/modType/{ID}
+    - selector: modType_service.ModTypeService.GetModTypes
+      get: /v1/modType
+    
+      

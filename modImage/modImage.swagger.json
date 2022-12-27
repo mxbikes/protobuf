@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "proto/modImage/modImage.proto",
+    "title": "modImage/modImage.proto",
     "version": "version not set"
   },
   "tags": [

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package modImage_service;
 
-option go_package = "github.com/RikVanHaaren/MxBikesClient/service.ModImage";
+option go_package = "github.com/mxbikes/protobuf/modImage";
 
 service ModImageService {
     rpc GetModImagesByModID(GetModImagesByModIDRequest) returns (GetModImagesByModIDResponse);

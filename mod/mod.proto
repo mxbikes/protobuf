@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package mod_service;
 
-option go_package = "github.com/RikVanHaaren/MxBikesClient/service.Mod";
+option go_package = "github.com/mxbikes/protobuf/Mod";
 
 import "google/protobuf/timestamp.proto";
 

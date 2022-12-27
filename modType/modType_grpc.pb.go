@@ -4,7 +4,7 @@
 // - protoc             v3.21.7
 // source: modType/modType.proto
 
-package service_ModType
+package ModType
 
 import (
 	context "context"

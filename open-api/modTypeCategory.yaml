@@ -1,0 +1,12 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: modTypeCategory_service.ModTypeCategoryService.GetModTypeCategoryByID
+      get: /v1/modTypeCategory/{ID}
+    - selector: modTypeCategory_service.ModTypeCategoryService.GetModTypeCategories
+      get: /v1/modTypeCategory
+    - selector: modTypeCategory_service.ModTypeCategoryService.GetModTypeCategoriesByModTypeID
+      post: /v1/modTypeCategory
+      body: "*"  

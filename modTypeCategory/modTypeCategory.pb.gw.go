@@ -2,11 +2,11 @@
 // source: modTypeCategory/modTypeCategory.proto
 
 /*
-Package service_ModTypeCategory is a reverse proxy.
+Package ModTypeCategory is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package service_ModTypeCategory
+package ModTypeCategory
 
 import (
 	"context"

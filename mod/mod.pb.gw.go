@@ -2,11 +2,11 @@
 // source: mod/mod.proto
 
 /*
-Package service_Mod is a reverse proxy.
+Package Mod is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package service_Mod
+package Mod
 
 import (
 	"context"

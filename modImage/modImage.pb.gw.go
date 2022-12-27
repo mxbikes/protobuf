@@ -2,11 +2,11 @@
 // source: modImage/modImage.proto
 
 /*
-Package service_ModImage is a reverse proxy.
+Package modImage is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package service_ModImage
+package modImage
 
 import (
 	"context"

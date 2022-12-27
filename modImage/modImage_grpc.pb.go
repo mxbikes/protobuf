@@ -4,7 +4,7 @@
 // - protoc             v3.21.7
 // source: modImage/modImage.proto
 
-package service_ModImage
+package modImage
 
 import (
 	context "context"

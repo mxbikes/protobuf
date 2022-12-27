@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package modTypeCategory_service;
 
-option go_package = "github.com/RikVanHaaren/MxBikesClient/service.ModTypeCategory";
+option go_package = "github.com/mxbikes/protobuf/ModTypeCategory";
 
 service ModTypeCategoryService {
     rpc GetModTypeCategoryByID(GetModTypeCategoryByIDRequest) returns (GetModTypeCategoryByIDResponse);
