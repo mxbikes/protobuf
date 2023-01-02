@@ -1,0 +1,10 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: user_service.UserService.GetUserByID
+      get: /v1/users/{ID}
+      
+      
+      

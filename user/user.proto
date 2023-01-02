@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package user_service;
+
+option go_package = "github.com/mxbikes/protobuf/User";
+
+import "google/protobuf/timestamp.proto";
+
+service UserService {
+    rpc GetUserByID(GetUserByIDRequest) returns (GetUserByIDResponse);
+}
+
+message User {
+    string ID = 1;
+    string Name = 2;
+    string Nickname = 3;
+    string Username = 5;
+    string Picture = 6;
+    string Email = 7;
+    google.protobuf.Timestamp Create_at = 9;
+}
+
+// GetUserByID
+message GetUserByIDRequest {
+    string ID = 1;
+}
+  
+message GetUserByIDResponse {
+    User User = 1;
+}
