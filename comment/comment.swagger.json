@@ -152,6 +152,10 @@
         },
         "Text": {
           "type": "string"
+        },
+        "CreateAt": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
