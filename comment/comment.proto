@@ -17,6 +17,7 @@ message Comment {
     string ID = 1;
     string ModID = 2;
     string UserID = 3;
+    string Text = 4;
     google.protobuf.Timestamp Create_At = 5;
 }
 
