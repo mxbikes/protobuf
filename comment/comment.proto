@@ -4,6 +4,7 @@ package comment_service;
 
 option go_package = "github.com/mxbikes/protobuf/comment";
 
+import "google/protobuf/timestamp.proto";
 
 service CommentService {
     rpc GetCommentByModID(GetCommentByModIDRequest) returns (GetCommentByModIDResponse);
@@ -13,37 +14,46 @@ service CommentService {
 }
 
 message Comment {
-
+    string ID = 1;
+    string ModID = 2;
+    string UserID = 3;
+    string Text = 4;
+    google.protobuf.Timestamp Create_At = 5;
 }
 
 // GetCommentByModID
 message GetCommentByModIDRequest {
-
+    string ModID = 1;
 }
   
 message GetCommentByModIDResponse {
-
+    repeated Comment Comments = 1;
 }
 
 // UpdateComment
 message UpdateCommentRequest {
-
+    string ID = 1;
+    string ModID = 2;
+    string UserID = 3;
+    string Text = 4;
 }
   
 message UpdateCommentResponse { }
 
 // DeleteComment
 message DeleteCommentRequest {
-
+    string ID = 1;
 }
   
 message DeleteCommentResponse { }
 
 // CreateComment
 message CreateCommentRequest {
-
+    string ModID = 2;
+    string UserID = 3;
+    string Text = 4;
 }
   
 message CreateCommentResponse {
-
+    string ID = 1;
 }
