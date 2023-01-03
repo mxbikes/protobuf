@@ -15,15 +15,15 @@ message Mod {
     string ID = 1;
     string Name = 2;
     string Description = 3;
-    string ModTypeCategoryID = 4;
+    //string ModTypeCategoryID = 4;
     int32 ReleaseYear = 5;
-    google.protobuf.Timestamp Create_at = 9;
+    google.protobuf.Timestamp Create_At = 9;
 }
 
 // SearchMod
 message SearchModRequest {
     string SearchText = 1;
-    repeated string ModTypeCategoryIDs = 2;
+    //repeated string ModTypeCategoryIDs = 2;
     int64 Page = 3;
     int64 Size = 4;
 }

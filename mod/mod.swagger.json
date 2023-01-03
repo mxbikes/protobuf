@@ -100,12 +100,10 @@
         "Description": {
           "type": "string"
         },
-        "ModTypeCategoryID": {
-          "type": "string"
-        },
         "ReleaseYear": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "string ModTypeCategoryID = 4;"
         },
         "CreateAt": {
           "type": "string",
@@ -143,15 +141,10 @@
         "SearchText": {
           "type": "string"
         },
-        "ModTypeCategoryIDs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "Page": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "repeated string ModTypeCategoryIDs = 2;"
         },
         "Size": {
           "type": "string",
