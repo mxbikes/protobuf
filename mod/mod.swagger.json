@@ -114,14 +114,6 @@
     "mod_servicePagination": {
       "type": "object",
       "properties": {
-        "TotalCount": {
-          "type": "string",
-          "format": "int64"
-        },
-        "TotalPages": {
-          "type": "string",
-          "format": "int64"
-        },
         "Page": {
           "type": "string",
           "format": "int64"
@@ -130,8 +122,27 @@
           "type": "string",
           "format": "int64"
         },
-        "HasMore": {
+        "MaxPage": {
+          "type": "string",
+          "format": "int64"
+        },
+        "TotalPages": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Total": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Last": {
           "type": "boolean"
+        },
+        "First": {
+          "type": "boolean"
+        },
+        "Visible": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -141,12 +152,11 @@
         "SearchText": {
           "type": "string"
         },
-        "Page": {
-          "type": "string",
-          "format": "int64",
-          "title": "repeated string ModTypeCategoryIDs = 2;"
-        },
         "Size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Page": {
           "type": "string",
           "format": "int64"
         }
@@ -159,7 +169,7 @@
         "Pagination": {
           "$ref": "#/definitions/mod_servicePagination"
         },
-        "mods": {
+        "Mods": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/mod_serviceMod"

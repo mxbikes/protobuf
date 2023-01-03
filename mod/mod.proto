@@ -23,23 +23,25 @@ message Mod {
 // SearchMod
 message SearchModRequest {
     string SearchText = 1;
-    //repeated string ModTypeCategoryIDs = 2;
+    int64 Size = 2;
     int64 Page = 3;
-    int64 Size = 4;
 }
 
 message SearchModResponse {
     Pagination Pagination = 1;
-    repeated Mod mods = 2;
+    repeated Mod Mods = 2;
 }
   
 message Pagination {
-    int64 TotalCount = 1;
-    int64 TotalPages = 2;
-    int64 Page = 3;
-    int64 Size = 4;
-    bool HasMore = 5;
-  }
+    int64 Page = 1;
+    int64 Size = 2;
+    int64 MaxPage = 3;
+    int64 TotalPages = 4;
+    int64 Total = 5;
+    bool Last = 6;
+    bool First = 7;
+    int64 Visible = 8;
+}
 
 // GetModByID
 message GetModByIDRequest {
