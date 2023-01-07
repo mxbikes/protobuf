@@ -9,6 +9,6 @@ http:
       put: /v1/subscriptions
       body: "*"
     - selector: subscription_service.SubscriptionService.RemoveSubscription
-      delete: /v1/subscriptions/{ID}
+      delete: /v1/subscriptions/{UserID}/{ModID}
 
       

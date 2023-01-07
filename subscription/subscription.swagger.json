@@ -76,7 +76,7 @@
         ]
       }
     },
-    "/v1/subscriptions/{ID}": {
+    "/v1/subscriptions/{UserID}/{ModID}": {
       "delete": {
         "operationId": "SubscriptionService_RemoveSubscription",
         "responses": {
@@ -95,7 +95,13 @@
         },
         "parameters": [
           {
-            "name": "ID",
+            "name": "UserID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ModID",
             "in": "path",
             "required": true,
             "type": "string"
@@ -167,9 +173,6 @@
     "subscription_serviceSubscription": {
       "type": "object",
       "properties": {
-        "ID": {
-          "type": "string"
-        },
         "UserID": {
           "type": "string"
         },

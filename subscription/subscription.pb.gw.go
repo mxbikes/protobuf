@@ -112,14 +112,24 @@ func request_SubscriptionService_RemoveSubscription_0(ctx context.Context, marsh
 		_   = err
 	)
 
-	val, ok = pathParams["ID"]
+	val, ok = pathParams["UserID"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "ID")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "UserID")
 	}
 
-	protoReq.ID, err = runtime.String(val)
+	protoReq.UserID, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "ID", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "UserID", err)
+	}
+
+	val, ok = pathParams["ModID"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "ModID")
+	}
+
+	protoReq.ModID, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "ModID", err)
 	}
 
 	msg, err := client.RemoveSubscription(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -138,14 +148,24 @@ func local_request_SubscriptionService_RemoveSubscription_0(ctx context.Context,
 		_   = err
 	)
 
-	val, ok = pathParams["ID"]
+	val, ok = pathParams["UserID"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "ID")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "UserID")
 	}
 
-	protoReq.ID, err = runtime.String(val)
+	protoReq.UserID, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "ID", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "UserID", err)
+	}
+
+	val, ok = pathParams["ModID"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "ModID")
+	}
+
+	protoReq.ModID, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "ModID", err)
 	}
 
 	msg, err := server.RemoveSubscription(ctx, &protoReq)
@@ -217,7 +237,7 @@ func RegisterSubscriptionServiceHandlerServer(ctx context.Context, mux *runtime.
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions/{ID}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions/{UserID}/{ModID}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -325,7 +345,7 @@ func RegisterSubscriptionServiceHandlerClient(ctx context.Context, mux *runtime.
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions/{ID}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions/{UserID}/{ModID}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -349,7 +369,7 @@ var (
 
 	pattern_SubscriptionService_AddSubscription_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "subscriptions"}, ""))
 
-	pattern_SubscriptionService_RemoveSubscription_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "subscriptions", "ID"}, ""))
+	pattern_SubscriptionService_RemoveSubscription_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "subscriptions", "UserID", "ModID"}, ""))
 )
 
 var (

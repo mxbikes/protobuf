@@ -51,7 +51,7 @@
     "modImage_serviceGetModImagesByModIDResponse": {
       "type": "object",
       "properties": {
-        "ModImage": {
+        "ModImages": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/modImage_serviceModImage"
