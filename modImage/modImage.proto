@@ -25,6 +25,6 @@ message GetModImagesByModIDRequest {
 }
 
 message GetModImagesByModIDResponse {
-    repeated ModImage ModImage = 2;
+    repeated ModImage ModImages = 2;
 }
   
