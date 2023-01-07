@@ -9,6 +9,7 @@ proto:
 	protoc -I. --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative modTypeCategory/*.proto
 	protoc -I. --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative mod/*.proto
 	protoc -I. --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative modImage/*.proto
+	protoc -I. --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative subscription/*.proto
 
 .PHONY: protoGateway
 protoGateway:
@@ -107,7 +108,6 @@ protoGateway:
 	  	--openapiv2_opt grpc_api_configuration=./open-api/modImage.yaml \
 	  	./modImage/modImage.proto
 
-
 # user
 	protoc -I . \
 		--go_out . \
@@ -126,3 +126,22 @@ protoGateway:
 	protoc -I . --openapiv2_out . \
 	  	--openapiv2_opt grpc_api_configuration=./open-api/user.yaml \
 	  	./user/user.proto
+
+# subscription
+	protoc -I . \
+		--go_out . \
+		--go_opt paths=source_relative \
+		--go-grpc_out . \
+		--go-grpc_opt paths=source_relative \
+		./subscription/subscription.proto
+
+	protoc -I . \
+		--grpc-gateway_out . \
+		--grpc-gateway_opt logtostderr=true \
+		--grpc-gateway_opt paths=source_relative \
+		--grpc-gateway_opt grpc_api_configuration=./open-api/subscription.yaml \
+		./subscription/subscription.proto
+
+	protoc -I . --openapiv2_out . \
+	  	--openapiv2_opt grpc_api_configuration=./open-api/subscription.yaml \
+	  	./subscription/subscription.proto

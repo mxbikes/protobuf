@@ -1,0 +1,14 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    - selector: subscription_service.SubscriptionService.GetSubscriptionsByUserID
+      post: /v1/subscriptions
+    - selector: subscription_service.SubscriptionService.AddSubscription
+      put: /v1/subscriptions
+      body: "*"
+    - selector: subscription_service.SubscriptionService.RemoveSubscription
+      delete: /v1/subscriptions/{ID}
+
+      

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package subscription_service;
+
+option go_package = "github.com/mxbikes/protobuf/Subscription";
+
+service SubscriptionService {
+    rpc GetSubscriptionsByUserID(GetSubscriptionsByIDRequest) returns (GetSubscriptionsByIDResponse);
+    rpc AddSubscription(AddSubscriptionRequest) returns (AddSubscriptionResponse);
+    rpc RemoveSubscription(RemoveSubscriptionRequest) returns (RemoveSubscriptionResponse);
+}
+
+message Subscription {
+    string ID = 1;
+    string UserID = 2;
+    string ModID = 3;
+}
+
+// GetSubscriptionByID
+message GetSubscriptionsByIDRequest {
+    string UserID = 1;
+}
+  
+message GetSubscriptionsByIDResponse {
+    repeated Subscription Subscriptions = 1;
+}
+
+// AddSubscription
+message AddSubscriptionRequest {
+    string UserID = 2;
+    string ModID = 3;
+}
+  
+message AddSubscriptionResponse { }
+
+// RemoveSubscription
+message RemoveSubscriptionRequest {
+    string ID = 1;
+}
+  
+message RemoveSubscriptionResponse { }
