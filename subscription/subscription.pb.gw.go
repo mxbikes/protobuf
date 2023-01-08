@@ -179,7 +179,7 @@ func local_request_SubscriptionService_RemoveSubscription_0(ctx context.Context,
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterSubscriptionServiceHandlerFromEndpoint instead.
 func RegisterSubscriptionServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server SubscriptionServiceServer) error {
 
-	mux.Handle("POST", pattern_SubscriptionService_GetSubscriptionsByUserID_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_SubscriptionService_GetSubscriptionsByUserID_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -204,7 +204,7 @@ func RegisterSubscriptionServiceHandlerServer(ctx context.Context, mux *runtime.
 
 	})
 
-	mux.Handle("PUT", pattern_SubscriptionService_AddSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_SubscriptionService_AddSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -295,7 +295,7 @@ func RegisterSubscriptionServiceHandler(ctx context.Context, mux *runtime.ServeM
 // "SubscriptionServiceClient" to call the correct interceptors.
 func RegisterSubscriptionServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client SubscriptionServiceClient) error {
 
-	mux.Handle("POST", pattern_SubscriptionService_GetSubscriptionsByUserID_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_SubscriptionService_GetSubscriptionsByUserID_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -317,7 +317,7 @@ func RegisterSubscriptionServiceHandlerClient(ctx context.Context, mux *runtime.
 
 	})
 
-	mux.Handle("PUT", pattern_SubscriptionService_AddSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_SubscriptionService_AddSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)

@@ -17,7 +17,7 @@
   ],
   "paths": {
     "/v1/subscriptions": {
-      "post": {
+      "get": {
         "operationId": "SubscriptionService_GetSubscriptionsByUserID",
         "responses": {
           "200": {
@@ -45,7 +45,7 @@
           "SubscriptionService"
         ]
       },
-      "put": {
+      "post": {
         "operationId": "SubscriptionService_AddSubscription",
         "responses": {
           "200": {

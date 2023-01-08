@@ -4,11 +4,11 @@ config_version: 3
 http:
   rules:
     - selector: subscription_service.SubscriptionService.GetSubscriptionsByUserID
-      post: /v1/subscriptions
+      get: /v1/subscriptions
     - selector: subscription_service.SubscriptionService.AddSubscription
-      put: /v1/subscriptions
+      post: /v1/subscriptions
       body: "*"
     - selector: subscription_service.SubscriptionService.RemoveSubscription
-      delete: /v1/subscriptions/{UserID}/{ModID}
+      delete: /v1/subscriptions
 
       
