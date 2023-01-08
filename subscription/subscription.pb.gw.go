@@ -101,18 +101,15 @@ func local_request_SubscriptionService_AddSubscription_0(ctx context.Context, ma
 
 }
 
-var (
-	filter_SubscriptionService_RemoveSubscription_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
-)
-
 func request_SubscriptionService_RemoveSubscription_0(ctx context.Context, marshaler runtime.Marshaler, client SubscriptionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RemoveSubscriptionRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_SubscriptionService_RemoveSubscription_0); err != nil {
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -125,10 +122,11 @@ func local_request_SubscriptionService_RemoveSubscription_0(ctx context.Context,
 	var protoReq RemoveSubscriptionRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_SubscriptionService_RemoveSubscription_0); err != nil {
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -193,7 +191,7 @@ func RegisterSubscriptionServiceHandlerServer(ctx context.Context, mux *runtime.
 
 	})
 
-	mux.Handle("DELETE", pattern_SubscriptionService_RemoveSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_SubscriptionService_RemoveSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -201,7 +199,7 @@ func RegisterSubscriptionServiceHandlerServer(ctx context.Context, mux *runtime.
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions/delete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -303,13 +301,13 @@ func RegisterSubscriptionServiceHandlerClient(ctx context.Context, mux *runtime.
 
 	})
 
-	mux.Handle("DELETE", pattern_SubscriptionService_RemoveSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_SubscriptionService_RemoveSubscription_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/subscription_service.SubscriptionService/RemoveSubscription", runtime.WithHTTPPathPattern("/v1/subscriptions/delete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -333,7 +331,7 @@ var (
 
 	pattern_SubscriptionService_AddSubscription_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "subscriptions"}, ""))
 
-	pattern_SubscriptionService_RemoveSubscription_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "subscriptions"}, ""))
+	pattern_SubscriptionService_RemoveSubscription_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "subscriptions", "delete"}, ""))
 )
 
 var (

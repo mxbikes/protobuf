@@ -45,40 +45,6 @@
           "SubscriptionService"
         ]
       },
-      "delete": {
-        "operationId": "SubscriptionService_RemoveSubscription",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/subscription_serviceRemoveSubscriptionResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "UserID",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "ModID",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "SubscriptionService"
-        ]
-      },
       "post": {
         "operationId": "SubscriptionService_AddSubscription",
         "responses": {
@@ -102,6 +68,38 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/subscription_serviceAddSubscriptionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SubscriptionService"
+        ]
+      }
+    },
+    "/v1/subscriptions/delete": {
+      "post": {
+        "operationId": "SubscriptionService_RemoveSubscription",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscription_serviceRemoveSubscriptionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription_serviceRemoveSubscriptionRequest"
             }
           }
         ],
@@ -164,6 +162,18 @@
           }
         }
       }
+    },
+    "subscription_serviceRemoveSubscriptionRequest": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "type": "string"
+        },
+        "ModID": {
+          "type": "string"
+        }
+      },
+      "title": "RemoveSubscription"
     },
     "subscription_serviceRemoveSubscriptionResponse": {
       "type": "object"
